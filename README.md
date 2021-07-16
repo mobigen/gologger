@@ -24,6 +24,13 @@ type Formatter struct {
 
 ## Usage
 
+이 모듈을 사용하기 위해서는 다음 과정이 필요하다.  
+참고 : [golang private repository link!](https://mingrammer.com/go-modules-private-repo)
+```bash
+$ GOPRIVATE=github.com/mobigen go get -v github.com/mobigen/gologger
+```
+
+소스 코드  
 ```go
 import (
 	formatter "github.com/mobigen/gologger"
