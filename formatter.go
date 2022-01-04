@@ -74,8 +74,13 @@ func (f *Formatter) Format(entry *logrus.Entry) ([]byte, error) {
 func (f *Formatter) writeCaller(b *bytes.Buffer, entry *logrus.Entry) {
 	if entry.HasCaller() {
 		_, filename := path.Split(entry.Caller.File)
-		fmt.Fprintf(b, "[%-16s : %3d] ",
-			filename, entry.Caller.Line)
+		if len(filename) < 16 {
+			fmt.Fprintf(b, "[%-16s : %3d] ",
+				filename, entry.Caller.Line)
+		} else {
+			fmt.Fprintf(b, "[%.14s... : %3d] ",
+				filename, entry.Caller.Line)
+		}
 	}
 }
 
