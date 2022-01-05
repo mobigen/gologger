@@ -78,7 +78,7 @@ func (f *Formatter) writeCaller(b *bytes.Buffer, entry *logrus.Entry) {
 			fmt.Fprintf(b, "[%-16s : %3d] ",
 				filename, entry.Caller.Line)
 		} else {
-			fmt.Fprintf(b, "[%.14s... : %3d] ",
+			fmt.Fprintf(b, "[%.16s : %3d] ",
 				filename, entry.Caller.Line)
 		}
 	}
